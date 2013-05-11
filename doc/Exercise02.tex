@@ -1,0 +1,135 @@
+\documentclass[14pt,a4paper]{article}
+\usepackage{ucs}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{subfigure}
+\usepackage{listing}
+
+\pagestyle{fancy}
+\renewcommand\thesubsubsection{}
+\renewcommand\thesubsection{\alph{subsection})}
+\renewcommand\thesection{Exercise \arabic{section}}
+\lhead{Exercise 2}
+\rhead{Group 4}
+\title{\textbf{Sheet 2} \\  \textbf{Motion Models and Robot Odometry}}
+\author{Group 4 \\Urs Borrmann, Caner Hazirbas, FangYi Zhi}
+
+\begin{document}
+\maketitle
+\onehalfspacing
+
+\section{}
+	\refstepcounter{subsection}
+	\refstepcounter{subsection}
+	\subsection{Group Picture}
+
+
+	\subsection{Graph Visualization}
+
+
+	\subsection{Specify the odometry model}
+
+
+\section{}
+	\refstepcounter{subsection}
+	\refstepcounter{subsection}
+	\refstepcounter{subsection}		
+	\subsection{Kalman Filter Covariance Ellipse Secreenshot}
+		
+
+	\subsection{Kalman Filter with Higher Noise Screenshots}
+	\subsection{Noise Prediction for Experimental Setup}	
+	
+	\subsection{Observation Function and Its Jacobian}
+		\subsubsection{Observation Function}
+	 	Observed marker pose is calculated with function $h(x)$ (eq. 1). This $h(x)$ observation function predicts the marker pose $z_{pre}$ given $x$, estimated robot world state(eq 2), and $z_{g}$ ,the marker pose in global frame(eq. 3).
+		 
+		\begin{enumerate}
+		\item $\begin{aligned}[t]
+		    &&&&&&&&&&&&& z_{pre}=h(x) \\
+		    &&&&&&&&&&&&& z_{pre} = (x_{pre}&&y_{pre}&\psi_{pre})^T
+		\end{aligned}$
+		\item $\begin{aligned}[t]
+		    &&&&&&&&&&&&& x = (x_{w}&&y_{w}&\psi_{w})^T
+		\end{aligned}$
+		\item $\begin{aligned}[t]
+		    &&&&&&&&&&&&& z_{g} = (x_{g}&&y_{g}&\psi_{g})^T
+		\end{aligned}$
+		\end{enumerate}
+	
+		In order to find the observation, we need to transform the global marker pose to local frame.
+		
+		If X is homogeneous transformation matrix of $x$, robot pose,
+		
+		$$	X =	\begin{pmatrix} 
+					R & t \\
+					0 & 1 
+				\end{pmatrix}
+			=	\begin{pmatrix}
+					\cos\psi_{w}	 &	-\sin\psi_{w} & x_{w}\\	
+					\sin\psi_{w} &	\cos\psi_{w}	 & y_{w}\\
+					0		 &		0	&	1
+				\end{pmatrix}
+		$$	
+		
+		then we can transform any local frame to global frame as follows;
+		
+				\[\vec{t_g}= X \vec{t_pre} \]
+				
+		We want to transform from global to local. In order to do that we should take inverse of X transformation matrix;
+		$$	X^{-1} =	\begin{pmatrix} 
+		
+					R^{-1} & -R^{-1}t \\
+					0 & 1 
+				\end{pmatrix}
+			=	\begin{pmatrix}
+					\cos\psi_{w}	 &	\sin\psi_{w} & -x_{w}\cos\psi_{w}-y_{w}\sin\psi_{w}\\	
+					-\sin\psi_{w} &	\cos\psi_{w}	 &  x_{w}\sin\psi_{w}-y_{w}\cos\psi_{w}\\
+					0		 &		0	&	1
+				\end{pmatrix}
+		$$
+		
+		
+		Now we can compute the local marker position from global marker position;
+		
+		\[\vec{t_{g}}= \left( \begin{array}{c}
+						x_{g} \\ y_{g}\\ 
+				\end{array} \right)\] 	
+		$$
+			\tilde{t_{pre}}  = X^{-1} \tilde{t_{w}}
+			= \begin{pmatrix}
+					(x_{w} - x_{l})\cos\psi_{w}	 +	(y_{w}-y_{l})\sin\psi_{w}\\ 	
+					-(x_{w} - x_{l})\sin\psi_{w} +	(y_{w}-y_{l})\cos\psi_{w}\\
+												1
+				\end{pmatrix}
+		$$
+		
+		Since yaw angle is always in the global frame, observed yaw angle is
+		
+		\[ \psi_{pre}=(\psi_{w} - \psi_{g})\]
+		
+		At the end we get following observation function
+		
+		$$
+		h(x)	= \begin{pmatrix}
+					(x_{w} - x_{g})\cos\psi_{w}	 +	(y_{w}-y_{g})\sin\psi_{w}\\ 	
+					-(x_{w} - x_{g})\sin\psi_{w} +	(y_{w}-y_{g})\cos\psi_{w}\\
+											(\psi_{w} - \psi_{g})
+			\end{pmatrix}
+		$$
+		
+		
+	\refstepcounter{subsection}
+	\subsection{Trajectory}
+		
+	
+	\subsection{Drift on Pose Estimation}
+	
+
+\end{document}
