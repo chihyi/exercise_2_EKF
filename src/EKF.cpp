@@ -54,11 +54,15 @@ using namespace Eigen;
 			state[0],state[1],state[2],
 			measurement[0], measurement[1], measurement[2]);
 
+	float dx = global_marker_pose(0)-state(0); //dx = x_marker - x_drone_global
+	float dy = global_marker_pose(1)-state(1);//dy = y_marker - y_drone_global
+	float dYaw = global_marker_pose(2)-state(2);//dYaw = yaw_marker - yaw_drone_global
+
 	// dh/dx:
 	Eigen::Matrix3f H;
 
-	H << sin(state(2)), -cos(state(2)), 0,
-		cos(state(2)), sin(state(2)), 0,
+	H << -cos(state(2)), -sin(state(2)), -dx*sin(state(2))+dy*cos(state(2)),
+		sin(state(2)), -cos(state(2)), -dx*cos(state(2))-dy*sin(state(2)),
 		0, 0,  -1;
 
 	//K
@@ -71,17 +75,18 @@ using namespace Eigen;
 	//f = z-h(x)
 	Eigen::Vector3f f;
 
-	float dx = global_marker_pose(0)-state(0); //dx = x_marker - x_drone_global
-	float dy = global_marker_pose(1)-state(1);//dy = y_marker - y_drone_global
-	float dYaw = global_marker_pose(2)-state(2);//dYaw = yaw_marker - yaw_drone_global
-
 	f << measurement(0)-cos(state(2))*dx-sin(state(2))*dy,
 			measurement(1)+sin(state(2))*dx-cos(state(2))*dy,
 			measurement(2)-dYaw;
 
-	state = state + K*f;
-//	state(2) = atan2(sin(state(2)),cos(state(2))); // normalize angle
+	f(2) = atan2(sin(f(2)),cos(f(2)));  // normalize angle
 
+	state = state + K*f;
+	Eigen::Vector3f a;
+	a = K*f;
+	cout << "f: " << f << endl;
+	cout << "K: " << K << endl;
+	cout << "K*f" << a << endl;
 
 	//update covariance matrix
 	Eigen::Matrix3f I;
