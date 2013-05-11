@@ -1,0 +1,8 @@
+<launch>
+	<node name="ar_pose" pkg="ar_pose" type="ar_multi" respawn="false" output="screen">
+		<param name="marker_pattern_list" type="string" value="$(find exercise_2_EKF)/marker/two_marker"/>
+		<param name="threshold" type="int" value="100"/>
+ 		<remap from="/usb_cam/image_raw" to="/ardrone/image_raw"/>
+ 		<remap from="/usb_cam/camera_info" to="/ardrone/camera_info"/>
+	</node>
+</launch>

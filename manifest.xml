@@ -1,0 +1,19 @@
+<package>
+  <description brief="ex_2">
+
+     ex_2
+
+  </description>
+  <author>Nikolas Engelhard</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/ex_2</url>
+  <depend package="sensor_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="roscpp"/>
+  <depend package="tf"/>
+  <depend package="visualization_msgs"/>
+  <depend package="common_rosdeps" />
+</package>
+
+
