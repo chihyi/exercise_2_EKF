@@ -1,3 +1,7 @@
+.cproject
+.project
+.pydevproject
+marker/
 bin/
 build/
 
