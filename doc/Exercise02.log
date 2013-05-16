@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.1.20)  12 MAY 2013 16:53
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.1.20)  16 MAY 2013 15:25
 entering extended mode
  %&-line parsing enabled.
 **Exercise02.tex
@@ -279,37 +279,34 @@ File: filtered_pose_modifiedQ.png Graphic file (type png)
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./Q_origin.png (PNG co
 py)> <./filtered_pose.png>] [3 <./Q_x_2Times.png (PNG copy)> <./filtered_pose_m
 odifiedQ.png>] [4]
-Overfull \hbox (6.07384pt too wide) detected at line 169
-\OML/cmm/m/it/10 H\OT1/cmr/m/n/10 ([]) = [] = []
- []
-
 <filtered_pose_corrected.png, id=33, 842.6682pt x 490.7133pt>
 File: filtered_pose_corrected.png Graphic file (type png)
 
-<use filtered_pose_corrected.png> [5 <./filtered_pose_corrected.png>]
+<use filtered_pose_corrected.png> [5 <./filtered_pose_corrected.png>] [6]
 (./Exercise02.aux) ) 
 Here is how much of TeX's memory you used:
  3629 strings out of 493848
  48634 string characters out of 1152823
- 115613 words of memory out of 3000000
+ 114613 words of memory out of 3000000
  6867 multiletter control sequences out of 15000+50000
  11810 words of font info for 46 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 27i,20n,43p,403b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,11n,43p,403b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
 bx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
 usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/t
 exmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texliv
-e/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type
-1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
-fonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr
-6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/s
-hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts
-/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Exercise02.pdf (5 pages, 352313 bytes).
+e/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-texlive/fonts/type
+1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
+fonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr
+12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/
+share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-t
+exlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/publi
+c/amsfonts/cm/cmsy7.pfb>
+Output written on Exercise02.pdf (6 pages, 363121 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
+ 82 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
