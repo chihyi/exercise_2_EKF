@@ -33,9 +33,6 @@
 	\subsection{Graph Visualization}
 
 
-	\subsection{Specify the odometry model}
-
-
 \section{}
 	\refstepcounter{subsection}
 	\refstepcounter{subsection}
@@ -46,7 +43,7 @@
 	\begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.5]{Q_origin.png}
-  	\caption{Covariance ellipse with the origin Q matrix}
+  	\caption{Covariance ellipse with the original Q matrix}
     \label{graph:Q_origin}
 	\end{figure}
 	
@@ -80,8 +77,12 @@
 	
 	\subsection{Noise Prediction for Experimental Setup}	
 	
+	One can fly the quadracopter proportional to the marker located on the ground and read the values from sensors. After a while without changing position or orientation of quadracopter, we can observe how much drift we are having. Using observed amount of drift and waited time, one can estimate the noise.
+	
 	\subsection{Observation Function and Its Jacobian}
+	
 		\subsubsection{Observation Function}
+		
 	 	Observed marker pose is calculated with function $h(x)$ (eq. 1). This $h(x)$ observation function predicts the marker pose $z_{pre}$ given $x$, estimated robot world state(eq 2), and $z_{g}$ ,the marker pose in global frame(eq. 3).
 		 
 		\begin{enumerate}
@@ -181,7 +182,7 @@
 		$$
 	\refstepcounter{subsection}
 	\subsection{Trajectory}
-		Figure \ref{graph:filtered_pose_corrected} shows the screenshot of the from EKF corrected two-dimensional trajectory from the given bag file.
+		Figure \ref{graph:filtered_pose_corrected} shows the screenshot of the EKF corrected two-dimensional trajectory from the given bag file.
 	
 	\begin{figure}[htbp]
 	\centering
@@ -192,6 +193,7 @@
 		
 	
 	\subsection{Drift on Pose Estimation}
+	
 	
 
 \end{document}
